@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# send a copy of stdin to all panes exept active one
+
+code=$(</dev/stdin)
+
+tmux list-panes           |\
+  grep -v active          |\
+  awk '{print $7}'        |\
+  xargs -I PANE tmux send-keys -t PANE "$code" Enter

@@ -1,0 +1,2 @@
+:syntax off
+:nnoremap <Tab> vip:<C-U>silent'<,'>w !./repls<CR>
